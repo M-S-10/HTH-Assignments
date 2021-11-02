@@ -67,3 +67,12 @@ Shoe_Count['Foamposite'] -= 3
 Shoe_Count['Air Max'] -= 3
 Shoe_Count['SB Dunk'] -= 3
 print("Count after special sale :", Shoe_Count)
+
+Food_Prices['Bread'] = '$2.25'
+Food_Prices['Apples'] = '$1.74'
+Food_Prices['Bananas'] = '$0.85'
+
+del Food_Prices['Apples']
+del Food_Prices['Bananas']
+
+print(Food_Prices)
