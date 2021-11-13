@@ -1,4 +1,4 @@
-Food_Prices = {'Chicken' : '$1.59', 'Beef' : '$1.99', 'Cheese': '$1.00', 'Milk' : '$2.50'}
+Food_Prices = {'Chicken' : 1.59, 'Beef' : 1.99, 'Cheese': 1.00, 'Milk' : 2.50}
 
 Country_Capitals = {'Finland' : 'Helsinki', 'Hungary' : 'Budapest', 'Greece' : 'Athens', 'France' : 'Paris', 'Germany' : 'Berlin' }
 
@@ -38,7 +38,7 @@ print()
 Country_Capitals['Netherlands'] = 'Amsterdam'
 print(Country_Capitals)
 
-print ()
+print()
 
 Shoe_Count = {"Jordan 13" : 1 , "Yeezy" : 8 , "Foamposite" : 10 , "Air Max" : 5 , "SB Dunk" : 20}
 print(Shoe_Count)
@@ -68,11 +68,89 @@ Shoe_Count['Air Max'] -= 3
 Shoe_Count['SB Dunk'] -= 3
 print("Count after special sale :", Shoe_Count)
 
-Food_Prices['Bread'] = '$2.25'
+Food_Prices['Food_item2read'] = '$2.25'
 Food_Prices['Apples'] = '$1.74'
-Food_Prices['Bananas'] = '$0.85'
+Food_Prices['Food_item2ananas'] = '$0.85'
 
 del Food_Prices['Apples']
-del Food_Prices['Bananas']
+del Food_Prices['Food_item2ananas']
 
 print(Food_Prices)
+
+print("\nFunctions, Looping and Operators")
+
+print()
+
+def total_price (Food_item1, Food_item2) :
+
+    if (Food_item1 or Food_item2) not in Food_Prices :
+        print("Either {} or {} are not in the dictionary".format(Food_item1, Food_item2))
+
+    else :  
+        total = Food_Prices[Food_item1] + Food_Prices[Food_item2]
+        
+        statement = "The total price of {} and {} is ${}".format(Food_item1, Food_item2, total)
+        
+        return statement
+
+print(total_price("Beef", "Cheese"))
+
+print()
+
+def price_difference (Food_item1, Food_item2) :
+
+    if (Food_item1 or Food_item2) not in Food_Prices :
+        print("Either {} or {} are not in the dictionary".format(Food_item1, Food_item2))
+
+    else : 
+        difference = Food_Prices[Food_item1] - Food_Prices[Food_item2]
+
+        statement = "The difference between {} and {} is ${}".format(Food_item1, Food_item2, abs(difference))
+        
+        return statement
+
+print(price_difference("Beef", "Cheese"))
+
+print()
+
+def restock (Shoe_name, multiple) :
+
+    if Shoe_name not in Shoe_Count :
+        print("{} is not in dictionary".format(Shoe_name))
+
+    else : 
+        Shoe_Count[Shoe_name] *= multiple
+        
+        return Shoe_Count
+
+print(restock("Yeezy", 3))
+
+print()
+
+def clearance_sale (Shoe_name, factor) :
+
+    if Shoe_name not in Shoe_Count :
+        print("{} is not in dictionary".format(Shoe_name))
+
+    else :
+        Shoe_Count[Shoe_name] //= factor
+
+        return Shoe_Count
+
+print(clearance_sale("SB Dunk", 2))
+
+print()
+
+def capital (country) :
+
+    country = country.capitalize()
+
+    if country not in Country_Capitals :
+        print("{} is not a valid country name")
+
+    else :
+        return Country_Capitals[country]
+
+print(capital("Finland"))
+
+    
