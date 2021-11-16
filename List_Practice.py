@@ -58,4 +58,57 @@ print()
 
 print("List after removing : ", US_Cities)
 
+print("\nFunctions, Looping and Operators")
+
 print()
+
+def show (list) :
+    for item in list :
+        print(item)
+
+    return None
+
+show(US_Cities)
+
+print()
+
+def city () :
+    i = 0
+
+    for citi in US_Cities  :
+
+        if i < 10 :
+
+            if len(US_Cities[i]) < len(US_Cities[i+1]) :
+                print(US_Cities[i+1])
+                i += 1
+
+            else : 
+                i += 1
+                continue
+
+            # When using WHILE LOOP, replace entire for statement with "While i < 10 :" and remove the first IF Conditional.
+
+city()
+
+print()
+
+def order (list) :
+    i = 0
+
+    while i < (len(list) - 1) : 
+        item1 = list[i]
+        item2 = list[i + 1]
+
+        if len(item1) >= len(item2) :
+            i += 1
+            continue
+
+        else : 
+            list.remove(item1)
+            list.append(item1)
+            i += 1
+
+    return list
+
+print(order(US_Cities))
