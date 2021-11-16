@@ -1,0 +1,13 @@
+In List_practice file, functions assignment : 
+
+Total_price Q : Can you think about how to change your code so that it isn’t limited to just two items, but any number of items the user inputs?
+
+Price_difference Q :  Can you think of a way to possibly combine this function with the one you defined previously?
+
+restock Q : Can you alter your code to apply a restock to all shoes in the dictionary and not just one?
+
+clearance_sale Q :  Can you alter your code to apply a clearance sale to all shoes in the dictionary and not just one?
+
+Can you think of a way to possibly combine this function with the one you defined previously?
+
+Latest Function Q : If the length of the city names are equal to each other, then put the one with the most vowels in front of the other.
