@@ -10,22 +10,22 @@ checklist = []
 def create(item) :
     checklist.append(item)
 
-    return "Added {} to checklist".format(item)
+    print("\nAdded {} to checklist".format(item))
 
 def read(index) :
-    return checklist[index]
+    print("\n{} at index {}".format(checklist[index], index))
 
 def update(index, item) :
     old = checklist[index]
     checklist[index] = item
 
-    return "Changed {} to {}".format(old, item)
+    print("\nChanged {} to {}".format(old, item))
 
 def destroy(index) :
     removed = checklist[index]
     checklist.pop(index)
 
-    return "Removed {} from checklist".format(removed)
+    print("\nRemoved {} from checklist".format(removed))
 
 
 # Helper functions
@@ -40,16 +40,10 @@ def list_all() :
         i += 1
 
 # Adding √ to items in checklist
-def completed() :
-    for item in checklist :
-        print("√", item)
-
-# User input
-def user_input(prompt) :
-    user_in = input(prompt)
-    return user_in
-
-
+def completed(index) :
+        checklist[index] = ("√ " + checklist[index])
+        for item in checklist :
+          print(item)
 
 
 # User choosing functions
@@ -62,7 +56,7 @@ def user_choice() :
         function_code = user_input("\nWhich function would you like to use? Enter C for create, R for read, U for update, D for destroy, A to view all items currently in the checklist and S to select an item with a checkmark : ")
 
         # Create item
-        if function_code == "C" or 'c':
+        if function_code == "C" or function_code == 'c':
             input_item = user_input("Enter item to create: ")
 
             create(input_item)
@@ -71,35 +65,35 @@ def user_choice() :
 
 
         # Read item
-        elif function_code == "R" or 'r':
+        elif function_code == "R" or  function_code == 'r':
             item_index = user_input("Enter index Number to view: ")
 
-            read(item_index)
+            read(int(item_index))
 
             continue
 
         # Update item
-        elif function_code == "U" or 'u':
+        elif function_code == "U" or  function_code == 'u':
             update_index = user_input("Enter index Number to update: ")
             update_item = user_input("Enter item to update: ")
 
-            update(int(update_index, update_item))
+            update(int(update_index), update_item)
 
             continue
 
-        elif function_code == "D" or 'd':
+        elif function_code == "D" or  function_code == 'd':
             delete_index = user_input("Enter index Number to delete item: ")
 
             destroy(int(delete_index))
 
             continue
 
-        elif function_code == "A" or 'a':
+        elif function_code == "A" or  function_code == 'a':
             list_all()
 
             continue
 
-        elif function_code == "S" or 's':
+        elif function_code == "S" or  function_code == 's':
             check_index = user_input("Enter index Number to check off: ")
 
             completed(int(check_index))
@@ -111,14 +105,17 @@ def user_choice() :
 
             if end == "Y" or end == 'y':
                 print(checklist)
-                editing = False
+                status = False
         
             else : 
                 
                 continue
 
     
-
+# User input
+def user_input(prompt) :
+    user_in = input(prompt)
+    return user_in
 
 
 # Testing   
